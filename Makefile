@@ -7,7 +7,7 @@ LATEST := ${NAME}:latest
 
 build:
 	@echo ${IMG}
-	@docker build -t ${IMG} .
+	@docker build -f Dockerfile.thin -t ${IMG} .
 	@docker tag ${IMG} ${LATEST}
 
 push:

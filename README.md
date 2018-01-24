@@ -1,4 +1,18 @@
 # ngingo - a tiny web server that makes a point
 
-docker build -t ngingo .
-docker run -dP --rm --name my-running-app ngingo
+Single page web designs are all the rage...
+
+##  Lifecycle commands in docker
+
+The build/run/stop commands are in the Makefile
+
+    make build
+    make run
+    make stop
+
+## Lifecycle commands in kubernetes
+
+The build/run/stop commands are in the Makefile
+
+    make runk
+    make stopk

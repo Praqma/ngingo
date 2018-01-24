@@ -1,17 +1,28 @@
-NAME   := ngingo
+NAME   := praqma/ngingo
 TAG    := $$(git log -1 --pretty=%h)
 IMG    := ${NAME}:${TAG}
 LATEST := ${NAME}:latest
 
-.PHONY: debug
-debug:
-	@echo ${IMG}
-	@touch file
+
 
 build:
 	@echo ${IMG}
 	@docker build -t ${IMG} .
-#  @docker tag ${IMG} ${LATEST}
+	@docker tag ${IMG} ${LATEST}
 
-#push:
-#  @docker push ${NAME}
+push:
+	@docker push ${NAME}
+
+run:
+	@docker run -d --rm -it -p 8080:8080 --name ngingo ${NAME}
+
+stop:
+	@docker stop ngingo
+
+runk:
+	@kubectl run hello-ngingo --image=${IMG} --port=8080
+	@kubectl expose deployment hello-ngingo --type=NodePort
+
+stopk:
+	@kubectl delete svc hello-ngingo
+	@kubectl delete deployment hello-ngingo

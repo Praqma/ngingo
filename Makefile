@@ -14,13 +14,13 @@ push:
 	@docker push ${NAME}
 
 run:
-	@docker run -d --rm -it -p 8080:8080 --name ngingo ${NAME}
+	@docker run -d --rm -it -p 80:80 --name ngingo ${NAME}
 
 stop:
 	@docker stop ngingo
 
 runk:
-	@kubectl run hello-ngingo --image=${IMG} --port=8080
+	@kubectl run hello-ngingo --image=${IMG} --port=80
 	@kubectl expose deployment hello-ngingo --type=NodePort
 
 stopk:

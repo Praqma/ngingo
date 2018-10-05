@@ -1,0 +1,5 @@
+FROM alpine
+
+COPY . .
+EXPOSE 80
+ENTRYPOINT ./ngingo
